@@ -1,8 +1,7 @@
 import React from "react";
-import HelloBootstrap from "./components/HelloBootstrap";
 
 function App() {
-  return <HelloBootstrap />;
+  return <p>Render Bootstrap components here</p>;
 }
 
 export default App;
