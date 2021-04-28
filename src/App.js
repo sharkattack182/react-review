@@ -1,12 +1,8 @@
 import React from "react";
-import HelloReact from "./components/HelloReact";
+import HelloDiv from "./components/HelloDiv";
 
 function App() {
-  return <HelloReact />;
+  return <HelloDiv />;
 }
 
 export default App;
-
-
-// import the helloReact component then return it in the app 
-// we have to import react because it used in the built in jsx babel
