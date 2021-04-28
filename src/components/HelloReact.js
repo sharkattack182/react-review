@@ -5,3 +5,6 @@ function HelloReact() {
 }
 
 export default HelloReact;
+
+
+// runs a function that returns the string hello world which is rendered in the app
