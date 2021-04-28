@@ -1,15 +1,8 @@
 import React from "react";
-import Nav from "./components/Nav";
-import Jumbotron from './components/Jumbotron'
+import JSXVariables from "./components/JSXVariables";
 
 function App() {
-  return (
-    <div className="container-flex">
-      <Nav />
-    <Jumbotron />
-    </div>
-    
-    )
+  return <JSXVariables />;
 }
 
 export default App;
