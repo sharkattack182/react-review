@@ -1,7 +1,15 @@
 import React from "react";
+import Nav from "./components/Nav";
+import Jumbotron from './components/Jumbotron'
 
 function App() {
-  return <p>Render Bootstrap components here</p>;
+  return (
+    <div className="container-flex">
+      <Nav />
+    <Jumbotron />
+    </div>
+    
+    )
 }
 
 export default App;
