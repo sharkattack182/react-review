@@ -9,6 +9,11 @@ class Counter extends React.Component {
     this.setState({ count: this.state.count + 1 });
   };
 
+
+  handleDecrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
+
   render() {
     return (
       <div className="card text-center">
@@ -19,6 +24,9 @@ class Counter extends React.Component {
           <p className="card-text">Click Count: {this.state.count}</p>
           <button className="btn btn-primary" onClick={this.handleIncrement}>
             Increment
+          </button>
+          <button className="btn btn-danger" onClick={this.handleDecrement}>
+            Decrement
           </button>
         </div>
       </div>
