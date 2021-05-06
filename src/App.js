@@ -1,33 +1,35 @@
-import React from 'react';
-import FriendCard from './components/FriendCard';
-import Wrapper from './components/Wrapper';
-import Title from './components/Title';
-import friends from './friends.json';
+import React from "react";
+import FriendCard from "./components/FriendCard";
+import Wrapper from "./components/Wrapper";
+import Title from "./components/Title";
+import friends from "./friends.json";
 
-function App() {
-  return (
-    <Wrapper>
-      <Title>Friends List</Title>
-      <FriendCard
-        name={friends[0].name}
-        image={friends[0].image}
-        occupation={friends[0].occupation}
-        location={friends[0].location}
-      />
-      <FriendCard
-        name={friends[1].name}
-        image={friends[1].image}
-        occupation={friends[1].occupation}
-        location={friends[1].location}
-      />
-      <FriendCard
-        name={friends[2].name}
-        image={friends[2].image}
-        occupation={friends[2].occupation}
-        location={friends[2].location}
-      />
-    </Wrapper>
-  );
+class App extends React.Component {
+
+  state = {
+    friends: friends
+  };
+
+
+  deleteFriend = (id) => {
+    const friends = this.state.friends.filter(friend => friend.id !== id);
+
+    this.setState({ friends })
+  }
+
+
+  render() {
+    return (
+      <Wrapper>
+        <Title>Friends List</Title>
+        {
+          this.state.friends.map(friend => {
+            return <FriendCard  name = {friend.name} occupation = {friend.occupation} location ={friend.location} image = {friend.image} id = {friend.id} deleteFriend = {this.deleteFriend}/>
+          })
+        }
+      </Wrapper>
+    );
+  }
 }
 
 export default App;
