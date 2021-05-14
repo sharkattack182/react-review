@@ -19,6 +19,30 @@ class OmdbContainer extends Component {
       .catch(err => console.log(err));
   };
 
+  componentDidMount = () => {
+    API.search("The Matrix")
+    .then(res => this.setState({ result: res.data }))
+    .catch(err => console.log(err))
+  }
+  handleInputChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+  
+    this.setState({
+      [name]: value
+    })
+
+  }
+
+  handleFormSubmit = (event) => {
+  
+    event.preventDefault();
+
+    API.search(this.state.search)
+    .then(res => this.setState({ result: res.data }))
+    .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <Container>
@@ -27,13 +51,18 @@ class OmdbContainer extends Component {
             <Card
               heading={this.state.result.Title || "Search for a Movie to Begin"}
             >
-              <MovieDetail
+              {this.state.result.Title ? (
+                <MovieDetail
                 title={this.state.result.Title}
                 src={this.state.result.Poster}
                 director={this.state.result.Director}
                 genre={this.state.result.Genre}
                 released={this.state.result.Released}
               />
+              ) : (
+                <h3>No Results to display</h3>
+              )}
+              
             </Card>
           </Col>
           <Col size="md-4">
